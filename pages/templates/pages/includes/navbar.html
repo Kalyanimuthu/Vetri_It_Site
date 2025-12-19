@@ -1,0 +1,64 @@
+{% load static %}
+
+<nav class="bg-white shadow-md text-lg">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- LOGO -->
+    <div class="flex items-center gap-3">
+      <a href="{% url 'home' %}">
+      <img src="{% static 'images/logo.webp' %}" class="w-14 h-14 rounded-full">
+      </a>
+    </div>
+
+    <!-- MENU -->
+    <div class="flex items-center space-x-8 font-medium">
+
+      <!-- ABOUT -->
+      <a href="{% url 'about_us' %}"
+         class="{% if request.resolver_match.url_name == 'about_us' %}
+                text-blue-600 font-semibold relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:bg-blue-600
+                {% else %}
+                hover:text-blue-600
+                {% endif %}">
+        About Us
+      </a>
+
+      <!-- WEB -->
+      <a href="{% url 'web_development' %}"
+         class="{% if request.resolver_match.url_name == 'web_development' %}
+                text-blue-600 font-semibold relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:bg-blue-600
+                {% else %}
+                hover:text-blue-600
+                {% endif %}">
+        Web Development
+      </a>
+
+      <!-- SOFTWARE -->
+      <a href="{% url 'software_development' %}"
+         class="{% if request.resolver_match.url_name == 'software_development' %}
+                text-blue-600 font-semibold relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:bg-blue-600
+                {% else %}
+                hover:text-blue-600
+                {% endif %}">
+        Software Development
+      </a>
+
+      <!-- DIGITAL -->
+      <a href="{% url 'digital_marketing' %}"
+         class="{% if request.resolver_match.url_name == 'digital_marketing' %}
+                text-blue-600 font-semibold relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:bg-blue-600
+                {% else %}
+                hover:text-blue-600
+                {% endif %}">
+        Digital Marketing
+      </a>
+
+      <!-- CTA -->
+      <button onclick="openEnquiry()" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">
+        Enquiry
+      </button>
+
+    </div>
+  </div>
+  
+</nav>

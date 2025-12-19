@@ -1,0 +1,102 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="max-w-7xl mx-auto px-6">
+  {% for service in services %}
+
+  <div class="grid md:grid-cols-2 gap-12 py-16 items-center">
+
+    {% if service.image_position == 'left' %}
+      <!-- IMAGE -->
+      <div class="flex justify-center">
+        <img src="{{ service.image.url }}" class="max-w-md">
+      </div>
+    {% endif %}
+
+    <!-- CONTENT -->
+    <div>
+      <h3 class="text-2xl font-semibold text-blue-600 mb-4">
+        {{ service.title }}
+      </h3>
+
+      <p class="text-gray-600 leading-relaxed">
+        {{ service.description }}
+      </p>
+    </div>
+
+    {% if service.image_position == 'right' %}
+      <!-- IMAGE -->
+      <div class="flex justify-center">
+        <img src="{{ service.image.url }}" class="max-w-md">
+      </div>
+    {% endif %}
+
+  </div>
+
+  {% endfor %}
+
+
+   <!-- PRICING SECTION -->
+{% for pricing in price %}
+
+
+  <h2 class="text-3xl font-semibold text-center mb-16">
+    {{ pricing.title }}
+  </h2>
+
+  <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+
+    {% for plan in pricing.plans.all %}
+    <div class="bg-blue-50 rounded-[2.5rem] rounded-b-full shadow-lg overflow-hidden flex flex-col">
+
+      <!-- TOP CURVE -->
+      <div class="relative bg-blue-600 text-white text-center pt-8 pb-16 rounded-b-[50%]">
+
+  <h3 class="text-xl font-semibold">
+    {{ plan.name }}
+  </h3>
+
+  <!-- PRICE BADGE (OVERLAP) -->
+  <div
+    class="absolute left-1/2 -bottom-8 transform -translate-x-1/2
+           bg-white text-blue-600 px-2 py-6 rounded-full font-semibold
+           shadow-lg z-50">
+    {{ plan.price }}
+  </div>
+
+</div>
+
+
+      <!-- FEATURES -->
+      <div class="px-6 py-12 flex-1 text-md">
+        <ul class="space-y-3 text-sm text-gray-700">
+          {% for feature in plan.features.all %}
+          <li class="flex gap-2">
+            <span class="text-blue-600 font-semibold">✓</span>
+            {{ feature.feature }}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- BUTTON -->
+      <div class="px-8 pb-8 flex justify-center font-semibold">
+        <button onclick="showPaymentSuccess()"
+        class="w-auto text-center bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">
+          {{ plan.button_text }}
+        </button>
+      </div>
+
+    </div>
+    {% endfor %}
+
+  </div>
+
+
+{% endfor %}
+</section>
+
+
+{% endblock %}

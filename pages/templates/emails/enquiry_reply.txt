@@ -1,0 +1,9 @@
+Hi {{ name }},
+
+Thank you for contacting Vetri IT Systems.
+
+We have received your enquiry regarding "{{ service }}".
+Our team will contact you shortly.
+
+Regards,
+Vetri IT Systems
