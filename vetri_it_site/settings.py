@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u2i46@ftb5k-$_h1eksw983tx9vrb0iqqy_+c@l*3g4&lh@0uu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 import os
 
@@ -138,8 +138,8 @@ STATICFILES_DIRS = [
 
 
 
-# MEDIA_URL = "/media/"
-# MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
@@ -153,8 +153,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': 'dmr1elctb',
-#     'API_KEY': '923881435372986',
-#     'API_SECRET': 'i9g4CokkK3XAmqg26asZ0hfWQQo',
-# }
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dmr1elctb',
+    'API_KEY': '923881435372986',
+    'API_SECRET': 'i9g4CokkK3XAmqg26asZ0hfWQQo',
+}
