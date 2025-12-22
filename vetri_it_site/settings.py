@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'pages',
     'ckeditor',
     'ckeditor_uploader',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
@@ -149,3 +151,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dmr1elctb',
+    'API_KEY': '923881435372986',
+    'API_SECRET': 'i9g4CokkK3XAmqg26asZ0hfWQQo',
+}
